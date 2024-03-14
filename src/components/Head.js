@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { toggleMenu } from '../utils/appSlice'
 import { YOUTUBE_SEARCH_API } from '../utils/Constants'
 import { cacheResults } from '../utils/searchSlice'
+import { Link } from 'react-router-dom'
 
 const Head = () => {
   const dispatch = useDispatch()
@@ -57,7 +58,12 @@ const Head = () => {
 
       <div className="col-span-10 px-10 relative">
         <input onChange={(e)=>setSearchQuery(e.target.value)} onFocus={()=>setShowSuggestion(true)} onBlur={()=>setShowSuggestion(false)} className="w-1/2  p-1.5 rounded-lg rounded-r-none border border-gray-400 border-r-0" type="text"/>
-        <button className='bg-gray-300 rounded-lg rounded-l-none p-2' >search</button>
+        
+        <Link to={`/results?search_query=${searchQuery.trim().split(" ").join("+")}`}>
+          <button className='bg-gray-300 rounded-lg rounded-l-none p-2'>search</button>
+        </Link>
+       
+        
         {(showSuggestion && suggestions.length!=0) &&
         <div className='absolute m-1 border border-2 rounded bg-white w-1/2'>
           {suggestions &&
