@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { toggleMenu } from '../utils/appSlice'
-import { YOUTUBE_SEARCH_API } from '../utils/Constants'
 import { cacheResults } from '../utils/searchSlice'
 import { Link } from 'react-router-dom'
 
 const Head = () => {
+  const YOUTUBE_SEARCH_API = process.env.YOUTUBE_SEARCH_API
   const dispatch = useDispatch()
   const handleToggleMenu = ()=>{
     dispatch(toggleMenu());

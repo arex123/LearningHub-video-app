@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { YOUTUBE_VIDEO_API } from '../utils/Constants';
 import VideoCard from './VideoCard';
 import { Link } from 'react-router-dom';
 
 const VideoContainer = () => {
+  const YOUTUBE_VIDEO_API = process.env.YOUTUBE_VIDEO_API
   const [videos,setVideos] = useState([]);
   useEffect(()=>{
     getVideos()
