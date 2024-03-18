@@ -3,7 +3,7 @@ import VideoCard from './VideoCard';
 import { Link } from 'react-router-dom';
 
 const VideoContainer = () => {
-  const YOUTUBE_VIDEO_API = process.env.YOUTUBE_VIDEO_API
+  const YOUTUBE_VIDEO_API = process.env.REACT_APP_YOUTUBE_VIDEO_API
   const [videos,setVideos] = useState([]);
   useEffect(()=>{
     getVideos()
@@ -13,9 +13,11 @@ const VideoContainer = () => {
     const data = await fetch(YOUTUBE_VIDEO_API);
     const json = await data.json()
     setVideos(json.items);
+
+    //TODO: channel profile pic: call channel api using channel id
   }
   return (
-    <div className='flex flex-wrap'>
+    <div className='p-2 flex justify-between flex-wrap'>
       {videos.map((video)=>
       (<Link key={video.id} to={"/watch?v="+video.id}> <VideoCard info={video}/></Link>)
       
