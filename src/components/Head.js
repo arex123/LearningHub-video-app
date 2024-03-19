@@ -40,7 +40,7 @@ const Head = () => {
     fetch(YOUTUBE_SEARCH_API + searchQuery)
       .then(response => response.json())
       .then(data => {
-        console.log(data)
+        // console.log(data)
         setSuggestions(data[1])
         dispatch(cacheResults({
           [searchQuery]: data[1]
@@ -50,13 +50,10 @@ const Head = () => {
   }
 
   const suggestionClicked = (text)=>{
-    console.log("##sugg : ",text)
     setSearchQuery(text)
   }
   const navigateToSearch = ()=>{
-    console.log("navigating");
     navigate(`/results?search_query=${searchQuery.trim().split(" ").join("+")}`)
-    console.log("2 navigating");
   }
 
   return (
