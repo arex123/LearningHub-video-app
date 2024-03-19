@@ -8,6 +8,7 @@ import store from './utils/store';
 import MainComponent from './components/Maincomponent';
 import WatchPage from './components/WatchPage';
 import SearchList from './components/SearchList/SearchList';
+import ChannelProfile from './components/Channel/ChannelProfile';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
               <Route index element={<MainComponent />} />
               <Route path="watch" element={<WatchPage />} />
               <Route path="results" element={<SearchList />} />
+              <Route path="user" element={<ChannelProfile />} />
             </Route>
           </Routes>
         </div>

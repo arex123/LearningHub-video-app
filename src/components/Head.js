@@ -2,11 +2,13 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { toggleMenu } from '../utils/appSlice'
 import { cacheResults } from '../utils/searchSlice'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const Head = () => {
   const YOUTUBE_SEARCH_API = process.env.REACT_APP_YOUTUBE_SEARCH_API
   const dispatch = useDispatch()
+
+  const navigate = useNavigate()
   const handleToggleMenu = () => {
     dispatch(toggleMenu());
   }
@@ -51,6 +53,11 @@ const Head = () => {
     console.log("##sugg : ",text)
     setSearchQuery(text)
   }
+  const navigateToSearch = ()=>{
+    console.log("navigating");
+    navigate(`/results?search_query=${searchQuery.trim().split(" ").join("+")}`)
+    console.log("2 navigating");
+  }
 
   return (
     <div className="grid grid-flow-col p-1 m-1 shadow-lg flex items-center">
@@ -64,9 +71,9 @@ const Head = () => {
       <div className="col-span-10 px-10 relative">
         <input value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} onFocus={() => setShowSuggestion(true)} onBlur={() => setTimeout(()=>setShowSuggestion(false),100) } className="w-1/2  p-1.5 rounded-lg rounded-r-none border border-gray-400 border-r-0" type="text" />
 
-        <Link to={`/results?search_query=${searchQuery.trim().split(" ").join("+")}`}>
-          <button className='bg-gray-300 rounded-lg rounded-l-none p-2'>search</button>
-        </Link>
+        {/* <Link to={`/results?search_query=${searchQuery.trim().split(" ").join("+")}`}> */}
+          <button onClick={()=>navigateToSearch()} className='bg-gray-300 rounded-lg rounded-l-none p-2'>search</button>
+        {/* </Link> */}
 
 
         {(showSuggestion && suggestions.length != 0) &&
