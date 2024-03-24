@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 
 const VideoCard = ({ info }) => {
 
-
   const { snippet, statistics } = info;
   const { channelTitle, title, thumbnails } = snippet;
 
@@ -12,7 +11,6 @@ const VideoCard = ({ info }) => {
       <div>
 <img class=""/>
         <ul>
-
           <li className='font-bold text-ellipsis line-clamp-2 pt-2'>{title}</li>
           <li>{channelTitle}</li>
           <li>{statistics.viewCount} views</li>
