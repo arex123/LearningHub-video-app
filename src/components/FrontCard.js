@@ -1,4 +1,6 @@
 
+import { Navigate, useNavigate } from "react-router-dom"
+
 const list=[
     {
         courseName:"Data Mining Course",
@@ -16,12 +18,17 @@ const list=[
         image:"https://i.ytimg.com/vi/QjMJsQx_O7o/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDqJgP5o08crC3dAm4lQONVOkSspg"
     }
 ]
+
 const FrontCard = () =>{
+    const navigate = useNavigate()
+    let MyLearningClicked = ()=>{   
+        navigate("/courses")
+    }
     return (
         <div class="border-0 m-5">
             <div class="w-[100%] flex justify-between">
             <h1 class="text-2xl font-bold">Lets Start Learning, Aditya</h1>
-            <p class="text-purple-700 font-bold underline underline-offset-4 cursor-pointer">My Learning</p>
+            <p onClick={()=>MyLearningClicked()} class="text-purple-700 font-bold underline underline-offset-4 cursor-pointer">My Learning</p>
             </div>
             <div class="flex space-x-5 justify-center mt-6">
                 {list.map((item)=><div class="flex border-2">
