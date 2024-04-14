@@ -16,7 +16,7 @@ function App() {
   return (
     <Provider store={store}>
       <Router>
-        <div className='font-sans'>
+        <div className='font-sans h-full'>
           <Head />
           <Routes>
             <Route path="/" element={<Body />}>
