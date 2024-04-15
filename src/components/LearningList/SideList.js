@@ -155,10 +155,10 @@ const SideList = () => {
             </div>
             <div className='h-[90vh] overflow-scroll'>
                 {videoList.map((video,index) => 
-                    <div key={(video.key+index)} className='p-2 flex items-center bg-red-300 hover:bg-slate-500 hover:cursor-pointer'>
-                        <input type="checkbox" defaultChecked className="checkbox " />
-                        <div className='text-[.9rem] ml-5'>
-                            <p>{video.title + " "+(index+1)}</p>
+                    <div key={(video.key+index)} className='p-2 flex items-start hover:bg-slate-300 hover:cursor-pointer'>
+                        <input type="checkbox" defaultChecked className="checkbox size-5 m-2" />
+                        <div className='text-[1rem] ml-5'>
+                            <p className='m-0'>{video.title + " "+(index+1)}</p>
                             <p>{video.length}</p>
                         </div>
                     </div>

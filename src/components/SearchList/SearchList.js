@@ -3,6 +3,8 @@ import styles from "./searchList.module.css"
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import Playlist from '../videoCard/Playlist';
+import Video from '../videoCard/Video';
 
 
 const searchResultList1 = [
@@ -1769,14 +1771,14 @@ const SearchList = () => {
     setSearchVList(videoList)
   }
 
-  const channelLinkClick = (chId)=>{
-  
-    navigate("/user?"+chId)
+  const channelLinkClick = (chId) => {
+
+    navigate("/user?" + chId)
 
   }
-  const videoLinkClick = (videoId)=>{
-  
-    navigate("/watch?v=" +videoId)
+  const videoLinkClick = (videoId) => {
+
+    navigate("/watch?v=" + videoId)
 
   }
 
@@ -1784,14 +1786,29 @@ const SearchList = () => {
     <div class="pr-40 py-3" >
       {searchResultList?.map((video) => (
         // <Link key={video.id.videoId} to={"/watch?v=" + video.id.videoId}>
-          <div key={video.id.videoId} class="flex mb-2">
-              <div onClick={()=>videoLinkClick(video.id.videoId)} class="cursor-pointer w-4/12 overflow-hidden rounded-lg h-52 bg-slate-700">
-                <img class="object-cover h-[100%] w-[100%] transition-all hover:scale-105" src={video.snippet.thumbnails.high.url} />
-              </div>
-            <div class="w-7/12 p-5">
-              <p onClick={()=>videoLinkClick(video.id.videoId)} class="cursor-pointer text-xl font-medium">{video.snippet.title}</p>
-              <p onClick={()=>channelLinkClick("UCc7gpqMnnOSbU_F2-5MVVZw")} class="cursor-pointer font-light text-xs my-2 hover:font-normal">{video.snippet.channelTitle}</p>
-              {/* <span>
+        <div key={video.id.videoId} class="flex mb-2">
+          <div onClick={() => videoLinkClick(video.id.videoId)} class="cursor-pointer w-4/12 overflow-hidden rounded-lg h-52 bg-slate-700">
+            {/* <img class="object-cover h-[100%] w-[100%] transition-all hover:scale-105" src={video.snippet.thumbnails.high.url} /> */}
+            {video.id.kind === "youtube#video" ? (
+              <img
+                className="object-cover h-[100%] w-[100%] transition-all hover:scale-105"
+                src={video.snippet.thumbnails.high.url}
+              />
+            ) : <img
+              className="object-cover h-[100%] w-[100%] rounded-3xl hover:opacity-50"
+              src={video.snippet.thumbnails.high.url}
+            />
+            }
+
+
+
+
+
+          </div>
+          <div class="w-7/12 p-5">
+            <p onClick={() => videoLinkClick(video.id.videoId)} class="cursor-pointer text-xl font-medium">{video.snippet.title}</p>
+            <p onClick={() => channelLinkClick("UCc7gpqMnnOSbU_F2-5MVVZw")} class="cursor-pointer font-light text-xs my-2 hover:font-normal">{video.snippet.channelTitle}</p>
+            {/* <span>
               <p>{video.views}</p>
               <p>{video.how_old}</p>
             </span>
@@ -1799,9 +1816,9 @@ const SearchList = () => {
               <img src={video.userpic}/>
               <p>{video.username}</p>
             </span> */}
-              <p onClick={()=>videoLinkClick(video.id.videoId)} class="cursor-pointer text-sm">{video.snippet.description}</p>
-            </div>
+            <p onClick={() => videoLinkClick(video.id.videoId)} class="cursor-pointer text-sm">{video.snippet.description}</p>
           </div>
+        </div>
 
         // </Link>
       ))}
