@@ -10,6 +10,40 @@ import Video from '../videoCard/Video';
 const searchResultList1 = [
   {
     "kind": "youtube#searchResult",
+    "etag": "A_I-4R2T5K4poZe55P9BAW9gmO0",
+    "id": {
+      "kind": "youtube#playlist",
+      "playlistId": "PLsyeobzWxl7qtP8Lo9TReqUMkiOp446cV"
+    },
+    "snippet": {
+      "publishedAt": "2018-10-03T16:53:24Z",
+      "channelId": "UC59K-uG2A5ogwIrHw4bmlEg",
+      "title": "JavaScript Tutorial for Beginners",
+      "description": "",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/uDwSnnhl1Ng/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/uDwSnnhl1Ng/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/uDwSnnhl1Ng/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        }
+      },
+      "channelTitle": "Telusko",
+      "liveBroadcastContent": "none",
+      "publishTime": "2018-10-03T16:53:24Z"
+    }
+  },
+  {
+    "kind": "youtube#searchResult",
     "etag": "ngkf9J5yKRcNpS6Xh3md49_Mojg",
     "id": {
       "kind": "youtube#video",
@@ -894,40 +928,40 @@ const searchResultList1 = [
   }
 ]
 const videoList = [
-  // {
-  //     "kind": "youtube#searchResult",
-  //     "etag": "61V67y3y4sYB17bdqhuCQokyAko",
-  //     "id": {
-  //         "kind": "youtube#playlist",
-  //         "playlistId": "PLu0W_9lII9ahR1blWXxgSlL4y9iQBnLpR"
-  //     },
-  //     "snippet": {
-  //         "publishedAt": "2022-07-14T12:51:40Z",
-  //         "channelId": "UCeVMnSShP_Iviwkknt83cww",
-  //         "title": "JavaScript Tutorials for Beginners in Hindi",
-  //         "description": "JavaScript Course in Hindi: This Javascript tutorial in Hindi course is designed for beginners with an aim to take JavaScript/ES6 ...",
-  //         "thumbnails": {
-  //             "default": {
-  //                 "url": "https://i.ytimg.com/vi/ER9SspLe4Hg/default.jpg",
-  //                 "width": 120,
-  //                 "height": 90
-  //             },
-  //             "medium": {
-  //                 "url": "https://i.ytimg.com/vi/ER9SspLe4Hg/mqdefault.jpg",
-  //                 "width": 320,
-  //                 "height": 180
-  //             },
-  //             "high": {
-  //                 "url": "https://i.ytimg.com/vi/ER9SspLe4Hg/hqdefault.jpg",
-  //                 "width": 480,
-  //                 "height": 360
-  //             }
-  //         },
-  //         "channelTitle": "CodeWithHarry",
-  //         "liveBroadcastContent": "none",
-  //         "publishTime": "2022-07-14T12:51:40Z"
-  //     }
-  // },
+  {
+      "kind": "youtube#searchResult",
+      "etag": "61V67y3y4sYB17bdqhuCQokyAko",
+      "id": {
+          "kind": "youtube#playlist",
+          "playlistId": "PLu0W_9lII9ahR1blWXxgSlL4y9iQBnLpR"
+      },
+      "snippet": {
+          "publishedAt": "2022-07-14T12:51:40Z",
+          "channelId": "UCeVMnSShP_Iviwkknt83cww",
+          "title": "JavaScript Tutorials for Beginners in Hindi",
+          "description": "JavaScript Course in Hindi: This Javascript tutorial in Hindi course is designed for beginners with an aim to take JavaScript/ES6 ...",
+          "thumbnails": {
+              "default": {
+                  "url": "https://i.ytimg.com/vi/ER9SspLe4Hg/default.jpg",
+                  "width": 120,
+                  "height": 90
+              },
+              "medium": {
+                  "url": "https://i.ytimg.com/vi/ER9SspLe4Hg/mqdefault.jpg",
+                  "width": 320,
+                  "height": 180
+              },
+              "high": {
+                  "url": "https://i.ytimg.com/vi/ER9SspLe4Hg/hqdefault.jpg",
+                  "width": 480,
+                  "height": 360
+              }
+          },
+          "channelTitle": "CodeWithHarry",
+          "liveBroadcastContent": "none",
+          "publishTime": "2022-07-14T12:51:40Z"
+      }
+  },
 
   {
     "kind": "youtube#searchResult",
@@ -997,40 +1031,7 @@ const videoList = [
       "publishTime": "2018-04-24T02:37:33Z"
     }
   },
-  {
-    "kind": "youtube#searchResult",
-    "etag": "A_I-4R2T5K4poZe55P9BAW9gmO0",
-    "id": {
-      "kind": "youtube#playlist",
-      "playlistId": "PLsyeobzWxl7qtP8Lo9TReqUMkiOp446cV"
-    },
-    "snippet": {
-      "publishedAt": "2018-10-03T16:53:24Z",
-      "channelId": "UC59K-uG2A5ogwIrHw4bmlEg",
-      "title": "JavaScript Tutorial for Beginners",
-      "description": "",
-      "thumbnails": {
-        "default": {
-          "url": "https://i.ytimg.com/vi/uDwSnnhl1Ng/default.jpg",
-          "width": 120,
-          "height": 90
-        },
-        "medium": {
-          "url": "https://i.ytimg.com/vi/uDwSnnhl1Ng/mqdefault.jpg",
-          "width": 320,
-          "height": 180
-        },
-        "high": {
-          "url": "https://i.ytimg.com/vi/uDwSnnhl1Ng/hqdefault.jpg",
-          "width": 480,
-          "height": 360
-        }
-      },
-      "channelTitle": "Telusko",
-      "liveBroadcastContent": "none",
-      "publishTime": "2018-10-03T16:53:24Z"
-    }
-  },
+ 
   {
     "kind": "youtube#searchResult",
     "etag": "unAxcQio1OpEShMzSvAUVOC7Ob8",
@@ -1776,18 +1777,24 @@ const SearchList = () => {
     navigate("/user?" + chId)
 
   }
-  const videoLinkClick = (videoId) => {
-
-    navigate("/watch?v=" + videoId)
-
+  const videoLinkClick = async (id) => {
+    console.log("id ",id)
+    if (id.kind == "youtube#video"){
+      navigate("/watch?v=" + id.videoId)
+    }else{
+    //get playlist info 
+    let playlistUrl="https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=20&playlistId="+id.playlistId   +"&key="+process.env.REACT_APP_API_KEY2
+    const data = await fetch(playlistUrl)
+    const newData = await data.json()
+    console.log("new Data ",newData)
+    }
   }
-
   return (
     <div class="pr-40 py-3" >
       {searchResultList?.map((video) => (
         // <Link key={video.id.videoId} to={"/watch?v=" + video.id.videoId}>
-        <div key={video.id.videoId} class="flex mb-2">
-          <div onClick={() => videoLinkClick(video.id.videoId)} class="cursor-pointer w-4/12 overflow-hidden rounded-lg h-52 bg-slate-700">
+        <div key={video.id.videoId ?? video.id.playlistId} class="flex mb-2">
+          <div onClick={() => videoLinkClick(video.id)} class="cursor-pointer w-4/12 overflow-hidden rounded-lg h-52 bg-slate-700">
             {/* <img class="object-cover h-[100%] w-[100%] transition-all hover:scale-105" src={video.snippet.thumbnails.high.url} /> */}
             {video.id.kind === "youtube#video" ? (
               <img
@@ -1806,7 +1813,7 @@ const SearchList = () => {
 
           </div>
           <div class="w-7/12 p-5">
-            <p onClick={() => videoLinkClick(video.id.videoId)} class="cursor-pointer text-xl font-medium">{video.snippet.title}</p>
+            <p onClick={() => videoLinkClick(video.id)} class="cursor-pointer text-xl font-medium">{video.snippet.title}</p>
             <p onClick={() => channelLinkClick("UCc7gpqMnnOSbU_F2-5MVVZw")} class="cursor-pointer font-light text-xs my-2 hover:font-normal">{video.snippet.channelTitle}</p>
             {/* <span>
               <p>{video.views}</p>
@@ -1816,7 +1823,7 @@ const SearchList = () => {
               <img src={video.userpic}/>
               <p>{video.username}</p>
             </span> */}
-            <p onClick={() => videoLinkClick(video.id.videoId)} class="cursor-pointer text-sm">{video.snippet.description}</p>
+            <p onClick={() => videoLinkClick(video.id)} class="cursor-pointer text-sm">{video.snippet.description}</p>
           </div>
         </div>
 

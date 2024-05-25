@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 const list=[
     {
@@ -20,6 +20,11 @@ const list=[
 ]
 const Course = () => {
     let [currListName,setCurrListName] = useState("All Courses")
+    useEffect(()=>{
+        (async()=>{
+            let response = await fetch("")
+        })()
+    },[])
   return (
     <div className='w-full'>
         <div className='p-10 bg-slate-600'>
