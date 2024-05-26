@@ -25,7 +25,7 @@ function App() {
               <Route path="results" element={<SearchList />} />
               <Route path="user" element={<ChannelProfile />} />
               <Route path="courses" element={<Course />} />
-              <Route path="mycourse/watch" element={<CourseWatch />} />
+              <Route path="learning" element={<CourseWatch/>} />
             </Route>
           </Routes>
         </div>

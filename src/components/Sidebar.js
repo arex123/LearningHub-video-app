@@ -11,7 +11,7 @@ const Sidebar = () => {
     <>
       {isMenuOpen &&
 
-        <div className='p-5 shadow-lg w-48'>
+        <div className='p-5 min-h-[93vh] shadow-lg w-48'>
           <ul>
             <Link to={"/"}>
               <li className='p-1 rounded-sm hover:bg-slate-300 '>
