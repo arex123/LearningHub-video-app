@@ -118,7 +118,7 @@ const Head = () => {
           My Learning
         </Link>
 
-        <span class="material-symbols-outlined cursor-pointer">person</span>
+        <span className="material-symbols-outlined cursor-pointer">person</span>
       </div>
     </div>
   );

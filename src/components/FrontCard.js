@@ -25,15 +25,15 @@ const FrontCard = () =>{
         navigate("/courses")
     }
     return (
-        <div class="border-0 m-5">
-            <div class="w-[100%] flex justify-between">
-            <h1 class="text-2xl font-bold">Lets Start Learning, Aditya</h1>
-            <p onClick={()=>MyLearningClicked()} class="text-purple-700 font-bold underline underline-offset-4 cursor-pointer">My Learning</p>
+        <div className="border-0 m-5">
+            <div className="w-[100%] flex justify-between">
+            <h1 className="text-2xl font-bold">Lets Start Learning, Aditya</h1>
+            <p onClick={()=>MyLearningClicked()} className="text-purple-700 font-bold underline underline-offset-4 cursor-pointer">My Learning</p>
             </div>
-            <div class="flex space-x-5 justify-center mt-6">
-                {list.map((item)=><div class="flex border-2">
-                    <img class="w-56 cursor-pointer" src={item.image}/>
-                    <div class="p-2 flex flex-col ">
+            <div className="flex space-x-5 justify-center mt-6">
+                {list.map((item)=><div className="flex border-2">
+                    <img className="w-56 cursor-pointer" src={item.image}/>
+                    <div className="p-2 flex flex-col ">
                         <p className="text-gray-500 mb-2">{item.courseName}</p>
                         <p className="cursor-pointer">{item.videoTitle}</p>
                         </div>

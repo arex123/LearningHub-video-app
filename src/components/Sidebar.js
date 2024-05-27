@@ -42,18 +42,18 @@ const Sidebar = () => {
         <div className='shadow-lg h-full p-3 opacity-75'>
           <ul>
             <Link to={"/"}> <>
-              <span class="material-symbols-outlined text-[rgba(0,0,0,.7)] pb-2 text-3xl mb-2">
+              <span className="material-symbols-outlined text-[rgba(0,0,0,.7)] pb-2 text-3xl mb-2">
                 home
               </span>
             </></Link>
             {/* <li>Shorts</li> */}
-            <li><span class="material-symbols-outlined text-[rgba(0,0,0,.7)] pb-2 text-3xl mb-2">
+            <li><span className="material-symbols-outlined text-[rgba(0,0,0,.7)] pb-2 text-3xl mb-2">
               history
             </span></li>
-            <li><span class="material-symbols-outlined text-[rgba(0,0,0,.7)] pb-2 text-3xl mb-2">
+            <li><span className="material-symbols-outlined text-[rgba(0,0,0,.7)] pb-2 text-3xl mb-2">
               thumb_up
             </span></li>
-            <li><span class="material-symbols-outlined text-[rgba(0,0,0,.7)] pb-2 text-3xl mb-2">
+            <li><span className="material-symbols-outlined text-[rgba(0,0,0,.7)] pb-2 text-3xl mb-2">
               favorite
             </span></li>
           </ul>

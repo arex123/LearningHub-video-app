@@ -9,7 +9,7 @@ const VideoCard = ({ info }) => {
     <div className='w-[300px] h-[280px] mb-7 shadow-lg p-2'>
       <img className='rounded-lg' alt='thumbnail' src={thumbnails.medium.url} />
       <div>
-<img class=""/>
+<img className=""/>
         <ul>
           <li className='font-bold text-ellipsis line-clamp-2 pt-2'>{title}</li>
           <li>{channelTitle}</li>

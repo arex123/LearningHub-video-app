@@ -76,17 +76,17 @@ const Course = () => {
             Archived
           </p>
         </div>
-        <div class="flex flex-wrap p-10 pt-0 mt-6">
+        <div className="flex flex-wrap p-10 pt-0 mt-6">
           {list.map((item) => (
-            <div onClick={()=>goToCourse(item)} class="w-72 m-3 border-2 group cursor-pointer">
-              <div className="relative" style={{"font-variation-settings": "'FILL' 1"}}>
+            <div key={item._id} onClick={()=>goToCourse(item)} className="w-72 m-3 border-2 group cursor-pointer">
+              <div className="relative" style={{"fontVariationSettings": "'FILL' 1"}}>
                 <img
-                  class="group-hover:opacity-45 duration-100"
+                  className="group-hover:opacity-45 duration-100"
                   src={item.thumbnail}
                 />
-                <span class="hidden group-hover:block material-symbols-outlined text-[40px] p-2 fill-[1] bg-white rounded-full absolute  leading-0 top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] duration-100">play_arrow</span>
+                <span className="hidden group-hover:block material-symbols-outlined text-[40px] p-2 fill-[1] bg-white rounded-full absolute  leading-0 top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] duration-100">play_arrow</span>
               </div>
-              <div class="flex flex-col justify-evenly">
+              <div className="flex flex-col justify-evenly">
                 <p className="text-gray-500 mb-2 font-bold text-sm m-2">{item.title}</p>
                 {/* <p className="cursor-pointer">{item.videoTitle}</p> */}
                 <progress

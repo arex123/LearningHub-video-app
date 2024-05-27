@@ -5,13 +5,10 @@ import { Tabs } from "antd";
 
 const CourseWatch = (props) => {
   const { state } = useLocation();
-  const [currentVideo, setCurrentVideo] = useState(null);
+  const [data, setData] = useState(null);
 
-  // console.log("6 ", props);
-  // console.log("7 ", state);
-  let [currSec, setCurrSec] = useState("Description");
+  const [currVideo,setCurrVideo] = useState()
 
-  
   useEffect(() => {
     (async () => {
       // let playlistUrl="https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults="+state.data.length +"&playlistId="+state.data.link   +"&key="+process.env.REACT_APP_API_KEY2
@@ -1009,80 +1006,75 @@ const CourseWatch = (props) => {
           resultsPerPage: 20,
         },
       };
-      setCurrentVideo(newData.items[0]);
-      // console.log("new Data ", newData);
+      let response = await fetch("http://localhost:1231/mycourse/"+state.data._id)
+      let json = await response.json()
+      console.log("json" ,json)
+      console.log(newData)
+      setData(json);
+      setCurrVideo(json.items[0])
     })();
 
-    const sideLisstItem = document.querySelector("#sideListId")
-  
-    const navbarObserving = new IntersectionObserver(entry=>{
-      console.log("1016  entry: ",entry)
-      if(entry[0].isIntersecting){
-        console.log("On the screen")
-        sideLisstItem.style.position = "initial"
-        
-      }else{
-        console.log("out of the screen")
-        sideLisstItem.style.position = "fixed"
-        sideLisstItem.style.top = 0
-        sideLisstItem.style.right = 0
+    const sideLisstItem = document.querySelector("#sideListId");
 
-        
+    const navbarObserving = new IntersectionObserver((entry) => {
+      if (entry[0].isIntersecting) {
+        sideLisstItem.style.position = "initial";
+        sideLisstItem.style.right = 0;
+      } else {
+        sideLisstItem.style.position = "fixed";
+        sideLisstItem.style.top = 0;
+        sideLisstItem.style.right = 0;
       }
-    })
+    });
 
-    navbarObserving.observe(document.querySelector('#headerId'))
-
+    navbarObserving.observe(document.querySelector("#headerId"));
   }, []);
 
-  useEffect(()=>{
-    console.log("updated currentVideo: ", currentVideo);
-
-  },[currentVideo])
-
-
+console.log("data ",data)
   const items = [
     {
-      key: '1',
-      label: 'Description',
-      children: <html>{currentVideo?.snippet?.description}</html>,
+      key: "1",
+      label: "Description",
+      children: <html>{currVideo?.snippet?.description}</html>,
     },
     {
-      key: '2',
-      label: 'Notes',
-      children: 'Content of Tab Pane 2',
+      key: "2",
+      label: "Notes",
+      children: "Content of Tab Pane 2",
     },
     {
-      key: '3',
-      label: 'Comments',
-      children: 'Content of Tab Pane 3',
+      key: "3",
+      label: "Comments",
+      children: "Content of Tab Pane 3",
     },
   ];
-
 
   return (
     <div className="w-full flex">
       <div className="w-[80%]">
-        {/* <iframe className='min-h-[70%] w-[100%]' src={"https://www.youtube.com/embed/A6XUVjK9W4o"} title="Youtube video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> */}
-        {currentVideo && (
+        {data && (
           <>
-        <video
-          className="max-h-[70%] w-[100%]"
-          // src={"https://www.youtube.com/watch?v=Gp6dp9Rm9xk"}
-          src={"https://www.youtube.com/embed/"+currentVideo.snippet.resourceId.videoId}
-          controls
-        ></video>
-
-          <div>
-            <p className="m-3">{currentVideo.snippet.title}</p>
-           
-            <Tabs className="m-3" defaultActiveKey="1" items={items}/>
-          </div>
+            <iframe
+              width="100%"
+              height="50%"
+              src={
+                "https://www.youtube.com/embed/" +
+                currVideo?.snippet?.resourceId?.videoId
+              }
+              title="Youtube video"
+              // frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+            <div>
+              <p className="m-3">{currVideo?.snippet?.title}</p>
+              <Tabs className="m-3" defaultActiveKey="1" items={items} />
+            </div>
           </>
         )}
       </div>
       <div id="sideListId" className="w-[19%]">
-        <SideList />
+        <SideList videoList={data?.items} setCurrVideo={setCurrVideo} status={data?.completedStatus}/>
       </div>
     </div>
   );
