@@ -1813,13 +1813,13 @@ const SearchList = () => {
   }, [location.search]);
 
   const getSearchResults = async () => {
-    // console.log("searchText ",searchText);
-    // const data = await fetch(api_url+location.search.substring(14)+"&key="+api_key)
-    // console.log("api_urlapi_key ",api_url+location.search.substring(14)+"&key="+api_key);
-    // const json = await data.json()
-    // console.log("json items: ",json.items);
-    // setSearchVList(json.items)
-    setSearchVList(videoList);
+    console.log("searchText ",searchText);
+    const data = await fetch(api_url+location.search.substring(14)+"&key="+api_key)
+    console.log("api_urlapi_key ",api_url+location.search.substring(14)+"&key="+api_key);
+    const json = await data.json()
+    console.log("json items: ",json.items);
+    setSearchVList(json.items)
+    // setSearchVList(videoList);
   };
 
   const channelLinkClick = (chId) => {
@@ -1842,22 +1842,49 @@ const SearchList = () => {
     }
   };
 
+
+  const [setornot,setSetorNot]= useState(true)
   const checkCourse =async (id)=>{
     console.log("process.env.server_url",process.env.REACT_APP_SERVER_URL)
     let response = await fetch(process.env.REACT_APP_SERVER_URL + "findCourse/"+id);
     let result = await response.json()
     console.log("result ",result)
+    setSetorNot(result.found)
+
 
   }
 
-  const handleAddCourse = async(id)=>{
-    let response = await fetch(process.env.REACT_APP_SERVER_URL+"addToCourse/",{
+  const handleAddCourse = async(video)=>{
+    console.log(process.env.REACT_APP_SERVER_URL+"addCourse")
+    let response = await fetch(process.env.REACT_APP_SERVER_URL+"addCourse",{
       method:"post",
-      body:JSON.stringify({id})
+      headers:{
+        'Content-Type': 'application/json' 
+      },
+      body:JSON.stringify({course:video})
     })
 
     let result = await response.json()
     console.log("course set result ",result)
+    if(result.saved){
+       setSetorNot(true)
+    }
+  }
+
+  const handleRemoveCourse = async(id)=>{
+    let response = await fetch(process.env.REACT_APP_SERVER_URL+"removeCourse",{
+      method:"post",
+      headers:{
+        'Content-Type': 'application/json' 
+      },
+      body:JSON.stringify({courseId:id})
+    })
+
+    let result = await response.json()
+    console.log("course remove result ",result)
+    if(result.removed){
+      setSetorNot(false)
+   }
   }
 
 
@@ -1926,7 +1953,10 @@ const SearchList = () => {
             <div tabIndex={0} className="dropdown-content z-[1] card card-compact w-40 text-center p-1 shadow">
               <div className="card-body flex flex-row">
                 {/* <h3 className="card-title">Card title!</h3> */}
-                <p onClick={()=>handleAddCourse(video.id.playlistId)} className="cursor-pointer hover:text-blue-800">Add to Courses</p>
+                {console.log("set ",setornot)}
+                {setornot?<p onClick={()=>handleRemoveCourse(video.id.playlistId)} className="cursor-pointer hover:text-blue-800">Remove from course</p>:
+                <p onClick={()=>handleAddCourse(video)} className="cursor-pointer hover:text-blue-800">Add to course</p>}
+                
                 {/* <PlusOutlined className="cursor-pointer"/> */}
               </div>
             </div>

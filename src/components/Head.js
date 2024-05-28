@@ -81,9 +81,14 @@ const Head = () => {
       <div className="col-span-10 relative">
         <input
           value={searchQuery}
+          onKeyDown={(e) => {
+            if (e.key === "Enter")
+              navigateToSearch();
+            }}
           onChange={(e) => setSearchQuery(e.target.value)}
           onFocus={() => setShowSuggestion(true)}
           onBlur={() => setTimeout(() => setShowSuggestion(false), 100)}
+          
           className="w-1/2  p-1.5 rounded-lg rounded-r-none border border-gray-400 border-r-0"
           type="text"
         />
